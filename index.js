@@ -10,6 +10,9 @@ const app = express();
 // va la ruta de la carpeta public
 app.use(express.static('public'))
 
+// Parse body
+app.use(express.json());
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 
