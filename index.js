@@ -2,9 +2,13 @@ const express = require('express');
 
 const dotenv = require('dotenv')
 dotenv.config();
+const { dbConnection } = require('./database/config');
 
 // server
 const app = express();
+
+// Database
+dbConnection()
 
 // Public directory
 // va la ruta de la carpeta public
