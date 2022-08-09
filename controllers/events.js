@@ -1,9 +1,14 @@
 const { response } = require('express');
 const Event = require('../models/Event');
 
-const getEvents = (req, res = response) => {
+const getEvents = async(req, res = response) => {
+    // con el populate trae la información del usuario a la referencia 'user'
+    // para mas de un atributo: populate ('user', 'name password')
+    const events = await Event.find().populate('user', 'name');
+
     res.json({
-        ok: true
+        ok: true,
+        events,
     });
 }
 
